@@ -1,6 +1,6 @@
 class BankAccount
   def initialize(name)
     @name = name
-    @transaction = []
+    @transactions = []
   end
 end
