@@ -2,7 +2,6 @@ class BankAccount
 
   attr_reader :name
 
-
   def initialize(name)
     @name = name
     @transactions = []
@@ -17,10 +16,19 @@ class BankAccount
     add_transaction(description, -amount)
   end
 
-
+  def balance
+    balance = 0.0
+    @transactions.each do |transaction|
+      balance += transaction[:amount]
+    end
+    return balance
+  end
 
   def add_transaction(description, amount)
     @transactions.push(description: description, amount: amount)
   end
 
+  def to_s
+    "Name: #{name}, Balance: #{sprintf("%0.2f", balance)}"
+  end
 end
